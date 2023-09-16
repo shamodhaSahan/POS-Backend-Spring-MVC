@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -21,15 +18,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString(exclude = {"orderDetailsList"})
+@ToString
 @Entity
 public class Item {
     @Id
     private String itemCode;
+    @Column(nullable = false)
     private String description;
+    @Column(nullable = false)
     private int qtyOnHand;
+    @Column(nullable = false)
     private BigDecimal unitPrice;
-
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
-    private List<OrderDetails> orderDetailsList;
 }

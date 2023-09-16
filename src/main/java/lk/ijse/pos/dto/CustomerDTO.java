@@ -22,5 +22,4 @@ public class CustomerDTO {
     private String name;
     private BigDecimal salary;
     private String address;
-    private List<OrderDTO> orderList;
 }

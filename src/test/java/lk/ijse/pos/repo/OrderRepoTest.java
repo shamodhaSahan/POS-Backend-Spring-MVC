@@ -10,6 +10,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @WebAppConfiguration
@@ -20,7 +22,8 @@ class OrderRepoTest {
     OrderRepo orderRepo;
     @Test
     public void testing() {
-        Order o = orderRepo.findTopByOrderByOrderIdDesc();
-        System.out.println(orderRepo.findTopByOrderByOrderIdDesc());
+        Optional<Order> o001 = orderRepo.findById("O004");
+        Order o = o001.get();
+        orderRepo.delete(o);
     }
 }

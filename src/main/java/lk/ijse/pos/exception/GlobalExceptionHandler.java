@@ -1,4 +1,4 @@
-package lk.ijse.pos.api;
+package lk.ijse.pos.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

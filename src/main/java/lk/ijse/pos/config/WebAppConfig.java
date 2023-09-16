@@ -1,5 +1,7 @@
 package lk.ijse.pos.config;
 
+import lk.ijse.pos.api.CustomerController;
+import lk.ijse.pos.exception.GlobalExceptionHandler;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -12,6 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "lk.ijse.pos.api")
+@ComponentScan(basePackageClasses = {CustomerController.class, GlobalExceptionHandler.class})
 public class WebAppConfig {
 }

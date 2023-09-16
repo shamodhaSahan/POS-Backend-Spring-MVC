@@ -1,6 +1,7 @@
 package lk.ijse.pos.repo;
 
 import lk.ijse.pos.entity.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.data.repository.CrudRepository;
  * Time : 11:38 PM
  */
 
-public interface OrderRepo extends CrudRepository<Order, String> {
+public interface OrderRepo extends JpaRepository<Order, String> {
     Order  findTopByOrderByOrderIdDesc();
+    void deleteByCustomerId(String customerId);
 }

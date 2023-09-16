@@ -23,12 +23,13 @@ import java.util.List;
 public class Order {
     @Id
     private String orderId;
+    @Column(nullable = false)
     private LocalDate date;
 
-    @ManyToOne
-    @JoinColumn(name = "customerId", insertable = false, updatable = false)
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
+    @JoinColumn(name = "customerId", nullable = false)
     private Customer customer;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<OrderDetails> orderDetails;
 }

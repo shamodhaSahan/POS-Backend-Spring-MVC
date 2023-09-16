@@ -21,5 +21,4 @@ public class ItemDTO {
     private String description;
     private int qtyOnHand;
     private BigDecimal unitPrice;
-    private List<OrderDetailsDTO> orderDetailsList;
 }
